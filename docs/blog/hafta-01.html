@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Bir masa üzerinde çekilen sıradan fotoğrafı, düzenlenebilir ve arşivlenebilir bir belgeye dönüştüren deneyim nasıl tasarlanır?">
+  <meta property="og:type" content="article"><meta property="og:title" content="Bir belgeyi fotoğraflamak neden onu taramak değildir?"><meta property="og:description" content="Bir masa üzerinde çekilen sıradan fotoğrafı, düzenlenebilir ve arşivlenebilir bir belgeye dönüştüren deneyim nasıl tasarlanır?">
+  <meta property="og:site_name" content="Scan App"><meta property="og:locale" content="tr_TR">
+  <link rel="canonical" href="https://rjhtctn.github.io/scan_app-mobile-programming-project/blog/hafta-01.html"><link rel="stylesheet" href="assets/site.css"><link rel="icon" href="../logo/logo.png" type="image/png">
+  <title>Bir belgeyi fotoğraflamak neden onu taramak değildir? | Scan App</title>
+</head>
+<body>
+<a class="skip" href="#icerik">İçeriğe geç</a>
+<header><nav class="nav wrap" aria-label="Ana menü"><a class="brand" href="../index.html"><img src="../logo/logo.png" alt="" width="42" height="42"> Scan App<span class="brand-dot">.</span></a><div class="navlinks"><a href="../index.html#yazilar">Yazılar</a><a href="../index.html#proje">Proje</a><a href="https://github.com/rjhtctn/scan_app-mobile-programming-project" target="_blank" rel="noopener">GitHub ↗</a></div></nav></header>
+<section class="article-head"><div class="article-intro wrap"><a class="back" href="../index.html#yazilar">← Geliştirme günlüğü</a><div class="eyebrow">Problem ve ürün fikri <span class="sep">/</span> 01. YAZI</div><h1>Bir belgeyi fotoğraflamak neden onu taramak değildir?</h1><p class="dek">Bir masa üzerinde çekilen sıradan fotoğrafı, düzenlenebilir ve arşivlenebilir bir belgeye dönüştüren deneyim nasıl tasarlanır?</p><div class="byline"><img src="../logo/logo.png" alt="" width="42" height="42"><div><strong>Bayram Külter</strong><span>Proje iletişimi · 5 dk okuma</span></div><div class="period">Çalışma dönemi: 5–11 Ekim 2026</div></div></div></section>
+<main id="icerik"><article class="prose wrap"><p>Bir faturayı veya ders notunu telefonla fotoğraflamak kolay. Ancak fotoğrafı daha sonra yeniden kullanmak istediğimizde sorunlar başlıyor: masanın kenarı kadrajda kalıyor, sayfa yamuk duruyor, gölge metnin üzerine düşüyor ve birkaç sayfayı birlikte göndermek için dosyaları tek tek seçmek gerekiyor. <strong>Scan App</strong> fikri tam olarak bu küçük ama tekrarlanan sürtünmelerden çıktı.</p>
+<h2>Fotoğraf ile belge arasındaki fark</h2>
+<p>Telefon kamerası, bir sahnenin görüntüsünü kaydeder. Belge tarama deneyimi ise fotoğrafı <em>belge olarak kullanılabilir</em> hâle getirmeyi hedefler. Bu ayrım, görüntüdeki gereksiz alanları ayıklamak, sayfanın geometrisini düzenlemek, okunabilirliği yükseltmek ve dosyayı anlamlı bir isimle saklamak gibi işlemleri beraberinde getirir.</p>
+<p>Bir belge tarayıcıda kullanıcı için en kritik an, deklanşöre basılan an değildir. <strong>Çekimden sonraki kararların kolaylığıdır:</strong> Çekilen fotoğraf doğru mu? Sayfa sınırları belirgin mi? Bir sayfa daha eklenecek mi? Sonuç nerede saklanacak?</p>
+<p>Bu soruları tek akışta çözmek için başlangıçta şu yolculuğu tasarladık:</p>
+<p><strong>Belgeyi yakala → sınırlarını belirle → görüntüyü düzenle → dosyayı oluştur → daha sonra eriş.</strong></p>
+<h2>Yerel çalışma neden bir ürün kararı?</h2>
+<p>Ders notu gibi sıradan bir kâğıt da, kişisel bilgi içeren bir evrak da taranabilir. Bu nedenle ilk günden itibaren temel işlemlerin cihaz üzerinde yapılmasını hedefledik. Amaç, belgenin işlenmesi için zorunlu olarak bir uzak sunucuya gönderilmesine ihtiyaç duymamak.</p>
+<p>Bu yaklaşımın mühendislik açısından bir karşılığı var: Görüntüyü cihazda işleyecek yöntemleri seçmek, dosyaları uygulama alanında tutmak ve belge bilgilerini yerel olarak yönetmek gerekiyor. Bulut senkronizasyonunu temel kapsam dışında tutmamızın nedeni yalnızca sadelik değil; ürünün mahremiyet vaadini tasarımın merkezine yerleştirmek.</p>
+<h2>Kapsamı bilinçli belirlemek</h2>
+<p>İlk kapsamda kamera, manuel ve otomatik belge sınırı belirleme, görüntü düzenleme, tek/çok sayfalı PDF ve dosya yönetimini hedef olarak yazdık. OCR ile metin tanımayı ise isteğe bağlı tuttuk. Çünkü iyi bir tarama deneyiminin temelini oluşturan kamera–kırpma–kaydetme hattını sağlamlaştırmadan yeni özellikler eklemek kullanıcı deneyimini iyileştirmiyor.</p>
+<p>Bu haftanın ürünü çalışan bir uygulama değil, <strong>ne yapacağımızı ve neyi henüz yapmayacağımızı netleştiren bir ürün tanımı</strong> oldu. Sonraki kararlar için önemli olan da buydu.</p>
+<h2>İlk sorudan ilk ekrana</h2>
+<p>Bir sonraki adım, bu ürün fikrini gerçek bir mobil uygulamaya dönüştürecek teknoloji yığınını seçmek. Arayüz ve görüntü işlemenin farklı sorumluluklar olduğunu baştan kabul etmek, ekip iş bölümümüzü de şekillendirdi.</p>
+<h2>Gerçek kullanım senaryolarıyla düşünmek</h2>
+<p>Bir öğrencinin ders notu, evde saklanan bir garanti belgesi ve masraf fişi aynı tür kâğıt değildir. Bazıları ince ve kıvrılmış, bazıları parlak, bazıları ise A4 sayfadan çok daha küçüktür. Tarayıcıyı yalnızca iyi ışık altındaki tek bir sayfaya göre tasarlamak, günlük kullanımın önemli bir bölümünü gözden kaçırmak demektir.</p>
+<p>Ürün hedefini belirlerken bu farklılıkları hesaba kattık. Kullanıcı her seferinde aynı açıda fotoğraf çekmeyecek; bazen belgenin arka planı koyu, bazen de kenarlar arka planla aynı renkte olacak. Otomatik işlemlerin yanında manuel düzenleme seçeneğini tutmamızın gerekçesi, başarısız olabilecek durumlarda kullanıcıyı çıkmaza sokmamak.</p>
+<p>Bir diğer karar da belgenin kaydedildikten sonra görünür kalmasıydı. Tarama işleminden sonra dosyanın nereye gittiği anlaşılmıyorsa kullanıcı açısından işlem tamamlanmamıştır. Bu nedenle belge arşivini baştan itibaren ürünün ana parçalarından biri olarak ele aldık.</p>
+</article><section class="article-foot wrap"><div class="foot-meta"><span>SCAN APP / GELİŞTİRME GÜNLÜĞÜ</span><p>Belge tarama deneyimini tasarımdan uygulamaya taşıyan haftalık yazılar.</p></div><div class="prevnext"><a href="../index.html#yazilar">Tüm yazılar</a><a href="hafta-02.html">Sonraki yazı →</a></div></section></main>
+<footer><div class="wrap footer-in"><span>© Scan App · Mobile Programming, 2026–2027 Güz</span><a href="https://github.com/rjhtctn/scan_app-mobile-programming-project">GitHub repository ↗</a></div></footer>
+</body></html>
