@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Kamera, görüntü işleme, PDF üretimi ve yerel dosyalar: Tek ekrana sığan deneyimin arkasında neden ayrı modüller var?">
+  <meta property="og:type" content="article"><meta property="og:title" content="Bir mobil tarayıcının mimarisini nasıl kurguladık?"><meta property="og:description" content="Kamera, görüntü işleme, PDF üretimi ve yerel dosyalar: Tek ekrana sığan deneyimin arkasında neden ayrı modüller var?">
+  <meta property="og:site_name" content="Scan App"><meta property="og:locale" content="tr_TR">
+  <link rel="canonical" href="https://rjhtctn.github.io/scan_app-mobile-programming-project/blog/hafta-02.html"><link rel="stylesheet" href="assets/site.css"><link rel="icon" href="../logo/logo.png" type="image/png">
+  <title>Bir mobil tarayıcının mimarisini nasıl kurguladık? | Scan App</title>
+</head>
+<body>
+<a class="skip" href="#icerik">İçeriğe geç</a>
+<header><nav class="nav wrap" aria-label="Ana menü"><a class="brand" href="../index.html"><img src="../logo/logo.png" alt="" width="42" height="42"> Scan App<span class="brand-dot">.</span></a><div class="navlinks"><a href="../index.html#yazilar">Yazılar</a><a href="../index.html#proje">Proje</a><a href="https://github.com/rjhtctn/scan_app-mobile-programming-project" target="_blank" rel="noopener">GitHub ↗</a></div></nav></header>
+<section class="article-head"><div class="article-intro wrap"><a class="back" href="../index.html#yazilar">← Geliştirme günlüğü</a><div class="eyebrow">Teknoloji ve mimari <span class="sep">/</span> 02. YAZI</div><h1>Bir mobil tarayıcının mimarisini nasıl kurguladık?</h1><p class="dek">Kamera, görüntü işleme, PDF üretimi ve yerel dosyalar: Tek ekrana sığan deneyimin arkasında neden ayrı modüller var?</p><div class="byline"><img src="../logo/logo.png" alt="" width="42" height="42"><div><strong>Bayram Külter</strong><span>Proje iletişimi · 6 dk okuma</span></div><div class="period">Çalışma dönemi: 12–18 Ekim 2026</div></div></div></section>
+<main id="icerik"><article class="prose wrap"><p>Belge tarama uygulaması dışarıdan tek bir iş yapıyormuş gibi görünür: Fotoğraf çekmek. Oysa kullanıcı kamerayı açtığı andan kaydedilmiş dosyayı yeniden görüntülediği ana kadar farklı sorumluluklar devreye girer. İkinci haftada asıl sorumuz, <strong>bu sorumlulukların birbirine karışmadan nasıl yönetileceğiydi</strong>.</p>
+<h2>Flutter'ı hangi problem için seçtik?</h2>
+<p>Flutter ve Dart'ı arayüzün kurulması, ekranlar arası geçişler ve kullanıcı etkileşimlerinin geliştirilmesi için seçtik. Kamera, görüntü işleme ve dosya saklama gibi işlevlerin hepsini tek bir ekranda gerçekleştirmek yerine uygulamanın bunları bir arada sunmasını istiyoruz.</p>
+<p>Flutter tarafında temel hedef, farklı ekranlarda aynı davranış dilini korumak: Kamera ekranında yapılan çekim, önizlemede onaylanmalı; ardından kırpma ekranına aktarılmalı ve sonucun nerede saklandığı kullanıcı için açık olmalı.</p>
+<h2>Kamera, görüntü işleme ve arayüz aynı şey değil</h2>
+<p><code>camera</code> paketi, Android kameraya erişimi ve fotoğraf yakalamayı sağlayacak katman olarak belirlendi. Görüntünün dört köşesini otomatik bulma ve perspektifini düzeltme gibi daha ileri işlemler için OpenCV değerlendirmeye alındı.</p>
+<p>Buradaki önemli ayrım, <strong>kenar bulmak</strong> ile <strong>görüntü yakalamak</strong> arasındadır. Kamera fotoğrafı üretir; görüntü işleme bu fotoğraftaki belge alanını tanımaya ve dönüştürmeye çalışır. Kullanıcı arayüzü ise son kararın kullanıcıda kalmasını sağlar.</p>
+<p>İlk aşama için manuel köşe seçimini de planda tutmamızın nedeni bu. Otomatik algılama her ışık ve zemin koşulunda doğru sonuç veremeyebilir. Kullanıcıya elle düzeltme seçeneği bırakmak ürünün dayanıklılığını artırır.</p>
+<h2>Dosyanın kendisi ile dosyanın bilgisi</h2>
+<p>Yerel saklama için iki ayrı veri türü öngördük. Birincisi gerçek görsel veya PDF dosyaları; ikincisi belgenin adı, oluşturulma tarihi, yolu ve sayfa sayısı gibi bilgiler. Bir dosyanın içeriği ile onun <em>metadata</em>'sını aynı yerde ve aynı yöntemle saklamak zorunda değiliz.</p>
+<p>Bu nedenle dosyaların cihazın uygulama alanında, belge üst verilerinin ise ilerleyen aşamada SQLite ile yönetilmesini planladık. Bu yapı arama, listeleme, yeniden adlandırma ve silme gibi işlemler için temel oluşturacak.</p>
+<h2>Sorumlulukları modüllere çevirmek</h2>
+<p>Mimari tercihlerin ekip organizasyonuna da yansıması gerekiyordu. Rojhat arayüz ve koordinasyona; Yusuf kamera ve görüntü işlemeye; Bayram yerel veri, PDF ve proje tanıtımına odaklanacak şekilde görevler ayrıldı.</p>
+<p>Bu aşamada paketleri üretim ortamında çalıştırdığımızı iddia etmiyoruz: İkinci hafta, <strong>mimari seçeneklerin araştırıldığı ve kararların belgelendiği</strong> dönemdi. Tasarımın sonraki adımı ise bu teknik ayrımı kullanıcının anlayacağı ekranlara dönüştürmekti.</p>
+<h2>Görüntüyü işlerken performans neden önemli?</h2>
+<p>Telefonun üzerinde işleme yapmayı hedeflemek, cihazın belleğine ve işlem gücüne ilişkin sınırları da beraberinde getiriyor. Yüksek çözünürlüklü bir görüntünün arayüzde gösterilmesi ile işlenmesi aynı maliyete sahip değil. Kullanıcı kaydedilecek belgeyi işlerken arayüzün yanıt vermeye devam etmesi, ileride ele alınacak önemli bir tasarım ölçütü.</p>
+<p>Bu nedenle ilk teknik planı tüm özellikleri aynı anda geliştirecek şekilde hazırlamadık. Önce kameradan görüntüyü almak, ardından dört nokta seçimini kurmak, sonra otomatik algılama ve PDF gibi işlemleri eklemek daha anlaşılır bir geliştirme sırası sunuyor. Bu sıra aynı zamanda hataların hangi modülden kaynaklandığını ayırt etmeyi kolaylaştırıyor.</p>
+</article><section class="article-foot wrap"><div class="foot-meta"><span>SCAN APP / GELİŞTİRME GÜNLÜĞÜ</span><p>Belge tarama deneyimini tasarımdan uygulamaya taşıyan haftalık yazılar.</p></div><div class="prevnext"><a href="hafta-01.html">← Önceki yazı</a><a href="../index.html#yazilar">Tüm yazılar</a><a href="hafta-03.html">Sonraki yazı →</a></div></section></main>
+<footer><div class="wrap footer-in"><span>© Scan App · Mobile Programming, 2026–2027 Güz</span><a href="https://github.com/rjhtctn/scan_app-mobile-programming-project">GitHub repository ↗</a></div></footer>
+</body></html>
