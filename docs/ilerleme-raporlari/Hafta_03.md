@@ -103,3 +103,36 @@ Bu haftanın sonunda:
 hedefliyoruz.
 
 Vize öncesindeki sonraki haftada Flutter projesini oluşturup ana ekran, kamera ekranı ve temel navigasyon özelliklerini içeren ilk prototipi geliştirmeye başlayacağız.
+
+---
+
+#### 3.6. Hafta Sonu Kapanışı (25 Ekim 2026)
+
+**Rapor durumu:** Hafta sonu güncellemesi  
+**Rapor sorumlusu:** Rojhat Çetin — Proje yöneticisi ve arayüz geliştirme
+
+> Hafta sonu yapılan çalışmalar aşağıda özetlenmiştir.
+
+**Hafta sonunda tamamlanan hazırlıklar**
+
+- Ana ekran, kamera, belge düzenleme ve belge detay ekranları için hazırlanan taslaklar, `tasarimlar/` klasöründe geliştirme referansı olarak düzenlendi.
+- Taslaklar üzerinden temel ekranlar ve kullanıcı akışı belirlendi. Flutter'daki gerçek navigasyon kodlaması 4. haftaya bırakıldı.
+- Ekipte arayüz ve koordinasyon (Rojhat), kamera/görüntü işleme (Yusuf) ve yerel veri/PDF/tanıtım (Bayram) sorumlulukları iş planında netleştirildi.
+- Repo içerisinde iş planları, tasarım dosyaları ve temel dokümantasyon yapısı oluşturularak 4. haftadaki kod geliştirme aşamasına hazırlık yapıldı.
+- `camera`, yerel dosya saklama, SQLite ve PDF için kullanılabilecek teknoloji ve görev alanları proje kapsam dokümanında belirlendi. Paketlerin çalışırlık testleri bu haftada tamamlanmış olarak değerlendirilmedi.
+
+**Üyelere göre kapanış durumu**
+
+| Sorumlu | 25 Ekim itibarıyla sonuç |
+|---|---|
+| Rojhat Çetin | Ekran/navigasyon kapsamı, ekip sorumlulukları ve GitHub dokümantasyonu başlangıç düzeyinde hazırlandı. |
+| Yusuf Emre Gözcü | Kamera ve ekran tasarımlarına ilişkin beklentiler, taslaklar ve geliştirme görevleri belirginleştirildi; kamera entegrasyonu henüz başlamadı. |
+| Bayram Külter | Belge saklama, PDF ve tanıtım modüllerinin kapsamı planlandı; çalışan yerel veritabanı, PDF veya yayımlanmış Medium yazısı bu aşamada doğrulanmadı. |
+
+**Tamamlanmayan / sonraki haftalara devredilen işler**
+
+- Flutter projesinin oluşturulması, ana ekran kodları ve sayfalar arası geçiş: **4. hafta**.
+- Kamera erişiminin uygulamaya bağlanması, görüntü işleme, PDF ve SQLite: ilgili ileriki haftalar.
+- Fiziksel cihaz testi ve geliştirme paketlerinin uygulama içinde doğrulanması: kod geliştirildikçe yapılacak.
+
+**Kapanış değerlendirmesi:** 3. haftanın **tasarım ve planlama hedefleri** tamamlandı; henüz çalışan Flutter uygulaması oluşturulmadı. Böylece 20 Ekim'de açık bırakılan hazırlık işleri için hafta sonu durumu ayrıca kaydedilmiş oldu.
