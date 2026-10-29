@@ -1,0 +1,5 @@
+package com.paperless.paperless
+
+import io.flutter.embedding.android.FlutterActivity
+
+class MainActivity : FlutterActivity()
