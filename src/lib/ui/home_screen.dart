@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'camera_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -7,7 +8,27 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('Akıllı Belge Tarayıcı')),
-      body: const Center(child: Text('Yeni belge taramak için hazırız.')),
+      body: Padding(
+        padding: const EdgeInsets.all(20),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            const Icon(Icons.document_scanner_outlined, size: 70),
+            const SizedBox(height: 20),
+            const Text('Belgelerim', style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
+            const SizedBox(height: 12),
+            const Text('Örnek belge kartları ve tarama alanı.'),
+            const Spacer(),
+            FilledButton.icon(
+              onPressed: () => Navigator.of(context).push(
+                MaterialPageRoute(builder: (_) => const CameraScreen()),
+              ),
+              icon: const Icon(Icons.camera_alt_outlined),
+              label: const Text('Yeni tarama'),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
