@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'camera_screen.dart';
+import 'widgets/sample_document_cards.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -17,7 +18,7 @@ class HomeScreen extends StatelessWidget {
             const SizedBox(height: 20),
             const Text('Belgelerim', style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
             const SizedBox(height: 12),
-            const Text('Örnek belge kartları ve tarama alanı.'),
+            const SampleDocumentCards(),
             const Spacer(),
             FilledButton.icon(
               onPressed: () => Navigator.of(context).push(
