@@ -2,7 +2,7 @@
 ## 3. Hafta — 19–25 Ekim 2026
 ### Taslak Arayüz Tasarımı ve Prototip Hazırlıkları
 
-[← 2. Hafta Raporu](Hafta_02.md) | [Ana İş Planı](../Proje_Kapsami_ve_Is_Plani.md) | [3. Hafta İş Planı](../is-planlari/Hafta_03.md)
+[← 2. Hafta Raporu](Hafta_02.md) | [Ana İş Planı](../Proje_Kapsami_ve_Is_Plani.md) | [3. Hafta İş Planı](../is-planlari/Hafta_03.md) | [4. Hafta Raporu →](Hafta_04.md)
 
 ---
 
