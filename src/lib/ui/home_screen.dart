@@ -14,7 +14,7 @@ class HomeScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            const Icon(Icons.document_scanner_outlined, size: 70),
+            const Icon(Icons.document_scanner_outlined, size: 70, color: Colors.teal),
             const SizedBox(height: 20),
             const Text('Belgelerim', style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
             const SizedBox(height: 12),
