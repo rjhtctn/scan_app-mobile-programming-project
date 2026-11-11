@@ -13,6 +13,7 @@ class _CameraScreenState extends State<CameraScreen> {
   CameraController? _controller;
   String? _error;
   bool _capturing = false;
+  bool _torch = false;
 
   @override
   void initState() {
@@ -35,6 +36,8 @@ class _CameraScreenState extends State<CameraScreen> {
         return;
       }
       setState(() => _controller = camera);
+    } on CameraException catch (e) {
+      if (mounted) setState(() => _error = e.description ?? e.code);
     } catch (e) {
       if (mounted) setState(() => _error = e.toString());
     }
@@ -42,7 +45,7 @@ class _CameraScreenState extends State<CameraScreen> {
 
   Future<void> _capture() async {
     final camera = _controller;
-    if (camera == null || _capturing) return;
+    if (camera == null || _capturing || camera.value.isTakingPicture) return;
     setState(() => _capturing = true);
     try {
       final file = await camera.takePicture();
@@ -59,6 +62,20 @@ class _CameraScreenState extends State<CameraScreen> {
     }
   }
 
+  Future<void> _toggleFlash() async {
+    final camera = _controller;
+    if (camera == null) return;
+    try {
+      final next = !_torch;
+      await camera.setFlashMode(next ? FlashMode.torch : FlashMode.off);
+      if (mounted) setState(() => _torch = next);
+    } on CameraException catch (e) {
+      if (mounted) ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Flaş kullanılamadı: ${e.description ?? e.code}')),
+      );
+    }
+  }
+
   @override
   void dispose() {
     _controller?.dispose();
@@ -69,7 +86,14 @@ class _CameraScreenState extends State<CameraScreen> {
   Widget build(BuildContext context) {
     final camera = _controller;
     return Scaffold(
-      appBar: AppBar(title: const Text('Kamera')),
+      appBar: AppBar(
+        title: const Text('Kamera'),
+        actions: [IconButton(
+          tooltip: 'Flaş',
+          onPressed: _controller == null ? null : _toggleFlash,
+          icon: Icon(_torch ? Icons.flash_on : Icons.flash_off),
+        )],
+      ),
       body: _error != null
           ? Center(child: Text(_error!))
           : camera == null
