@@ -1,6 +1,7 @@
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'photo_preview_screen.dart';
+import '../data/temp_store.dart';
 
 class CameraScreen extends StatefulWidget {
   const CameraScreen({super.key});
@@ -49,9 +50,10 @@ class _CameraScreenState extends State<CameraScreen> {
     setState(() => _capturing = true);
     try {
       final file = await camera.takePicture();
+      final draftPath = await TempStore.copyShot(file.path);
       if (!mounted) return;
       await Navigator.of(context).push(
-        MaterialPageRoute(builder: (_) => PhotoPreviewScreen(imagePath: file.path)),
+        MaterialPageRoute(builder: (_) => PhotoPreviewScreen(imagePath: draftPath)),
       );
     } catch (e) {
       if (mounted) ScaffoldMessenger.of(context).showSnackBar(
