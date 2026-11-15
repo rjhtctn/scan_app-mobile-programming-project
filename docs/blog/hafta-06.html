@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Flaş, hata yönetimi, geçici dosyalar ve yeniden çekme: Fotoğraf yakalamanın etrafındaki görünmeyen mühendislik.">
+  <meta property="og:type" content="article"><meta property="og:title" content="Kamera açıldıktan sonra iş neden bitmiyor?"><meta property="og:description" content="Flaş, hata yönetimi, geçici dosyalar ve yeniden çekme: Fotoğraf yakalamanın etrafındaki görünmeyen mühendislik.">
+  <meta property="og:site_name" content="Scan App"><meta property="og:locale" content="tr_TR">
+  <link rel="canonical" href="https://rjhtctn.github.io/scan_app-mobile-programming-project/blog/hafta-06.html"><link rel="stylesheet" href="assets/site.css"><link rel="icon" href="../logo/logo.png" type="image/png">
+  <title>Kamera açıldıktan sonra iş neden bitmiyor? | Scan App</title>
+</head>
+<body>
+<a class="skip" href="#icerik">İçeriğe geç</a>
+<header><nav class="nav wrap" aria-label="Ana menü"><a class="brand" href="../index.html"><img src="../logo/logo.png" alt="" width="42" height="42"> Scan App<span class="brand-dot">.</span></a><div class="navlinks"><a href="../index.html#yazilar">Yazılar</a><a href="../index.html#proje">Proje</a><a href="https://github.com/rjhtctn/scan_app-mobile-programming-project" target="_blank" rel="noopener">GitHub ↗</a></div></nav></header>
+<section class="article-head"><div class="article-intro wrap"><a class="back" href="../index.html#yazilar">← Geliştirme günlüğü</a><div class="eyebrow">Kamera ve dosya akışı <span class="sep">/</span> 06. YAZI</div><h1>Kamera açıldıktan sonra iş neden bitmiyor?</h1><p class="dek">Flaş, hata yönetimi, geçici dosyalar ve yeniden çekme: Fotoğraf yakalamanın etrafındaki görünmeyen mühendislik.</p><div class="byline"><img src="../logo/logo.png" alt="" width="42" height="42"><div><strong>Bayram Külter</strong><span>Proje iletişimi · 6 dk okuma</span></div><div class="period">Çalışma dönemi: 9–15 Kasım 2026</div></div></div></section>
+<main id="icerik"><article class="prose wrap"><p>Bir kamera demosunda tek bir butonla fotoğraf çekmek etkileyicidir. Fakat gerçek bir belge tarama deneyimi, fotoğrafın kaybolmamasını, yanlış karede yeniden çekilebilmesini ve sonraki ekrana doğru aktarılmasını da gerektirir. Altıncı haftada kamera modülünün bu tamamlayıcı parçalarını geliştirdik.</p>
+<h2>Kamera her zaman hazır değildir</h2>
+<p>Mobil cihazlarda kamera açma işlemi anlık değildir. Kullanılabilir kameraların sorgulanması ve kontrolcünün başlatılması zaman alır. Üstelik kamera izni, cihaz özellikleri veya donanıma erişim gibi nedenlerle hata oluşabilir.</p>
+<p>Flutter tarafında <code>CameraController</code> ile başlatma ve çekim işlemleri yürütülürken kullanıcıya boş bir ekran bırakmak yerine yüklenme ve hata durumlarının ayrı ele alınması önemlidir. Uygulamanın bu aşamasında kamera açılışındaki ve çekim sırasındaki hataları yakalayan temel kontroller eklendi.</p>
+<h2>Flaş neden ayrı bir kontrol?</h2>
+<p>Belge çekimi çoğu zaman yeterli ışığın olmadığı ortamlarda yapılır. Kamera ekranına flaş açma/kapama seçeneği ekleyerek kullanıcıya çekim koşullarında sınırlı da olsa kontrol sağladık. Burada donanım farklılıklarını unutmamak gerekir: Her cihaz aynı flaş davranışını sunmayabilir.</p>
+<p>Bu nedenle flaş isteğinin başarısız olabileceği de kodda ele alınıyor. Böylece başarısız bir donanım çağrısının sessizce geçilmesi yerine kullanıcıya geri bildirim verilebiliyor.</p>
+<h2>Çekimden sonra dosya nereye gider?</h2>
+<p>Fotoğraf çekildiğinde kamera paketi bir dosya yolu döndürür. Biz bu görüntüyü uygulamanın geçici alanındaki <code>scan_drafts</code> klasörüne kopyalayan bir yapı ekledik. Böylece kamera tarafından üretilen dosyanın yoluna doğrudan bağımlı kalmadan önizleme ekranına ilerlemek mümkün hâle geldi.</p>
+<p>Burada <em>geçici</em> kelimesi önemli: Bu klasör, tamamlanmış belge arşivi değil; kullanıcının yeni bir çekim yaparken üzerinde çalıştığı görüntüler için bir ara alan.</p>
+<h2>Yeniden çek mi, fotoğrafı kullan mı?</h2>
+<p>Önizleme ekranında bu iki seçeneğin bulunması küçük bir tasarım detayı gibi görünür. Oysa kullanıcıya sonucun sorumluluğunu geri verir. Kadraja el girmişse veya sayfanın bir bölümü dışarıda kalmışsa işlem zincirini sürdürmeden geri dönülebilir.</p>
+<p>Altıncı haftanın sonunda uygulamanın kaynak kodunda <strong>kamera, temel hata yönetimi, flaş kontrolü, geçici dosya ve yeniden çekme akışı</strong> bir araya geldi. Bir sonraki eşik, fotoğraftaki gerçek belge alanını kullanıcıya seçtirmekti.</p>
+<h2>Geçici dosya ile kalıcı belgeyi ayırmak</h2>
+<p>Kullanıcı fotoğrafı yeniden çekmeyi seçtiğinde, ilk görüntüyü nihai belge olarak arşivlemek istemeyiz. Bu yüzden kameradan alınan fotoğrafa bir çalışma dosyası gibi davranmak gerekiyor. Uygulama geçici dizininde <code>scan_drafts</code> klasörünün kullanılması, çekim sırasında üretilen dosya ile sonradan saklanacak belgeyi ayrı düşünmemizi sağladı.</p>
+<p>Geçici dosyalar işletim sistemi tarafından temizlenebilir; bu nedenle belge arşivini yalnızca bu alana dayandırmak doğru değildir. Sonraki kırpma ve kayıt adımlarında uygulamanın belge dizinini kullanma planı bu ayrımdan doğuyor.</p>
+<h2>Bir kullanıcı eyleminden birden fazla duruma</h2>
+<p>Çekim butonuna basıldığında süreç hemen bitmez: Kamera hazır mı, hâlihazırda bir fotoğraf çekiliyor mu, yeni dosya oluşturulabildi mi, önizleme ekranına gidilebilir mi? Bu soruların her biri arayüzün farklı davranmasını gerektirir.</p>
+<p>Aynı fotoğrafın peş peşe çekilmesini önlemek için geçici bir &quot;çekim sürüyor&quot; durumu tutmak, yalnızca teknik bir güvence değildir. Kullanıcının ne olduğunu anlayabilmesi ve yanlışlıkla tekrar işlem başlatmaması için de önemlidir.</p>
+</article><section class="article-foot wrap"><div class="foot-meta"><span>SCAN APP / GELİŞTİRME GÜNLÜĞÜ</span><p>Belge tarama deneyimini tasarımdan uygulamaya taşıyan haftalık yazılar.</p></div><div class="prevnext"><a href="hafta-05.html">← Önceki yazı</a><a href="../index.html#yazilar">Tüm yazılar</a><a href="hafta-07.html">Sonraki yazı →</a></div></section></main>
+<footer><div class="wrap footer-in"><span>© Scan App · Mobile Programming, 2026–2027 Güz</span><a href="https://github.com/rjhtctn/scan_app-mobile-programming-project">GitHub repository ↗</a></div></footer>
+</body></html>
