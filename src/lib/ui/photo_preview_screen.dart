@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
+import 'crop_screen.dart';
 
 class PhotoPreviewScreen extends StatelessWidget {
   const PhotoPreviewScreen({super.key, required this.imagePath});
@@ -14,10 +15,21 @@ class PhotoPreviewScreen extends StatelessWidget {
           Expanded(child: Center(child: Image.file(File(imagePath), fit: BoxFit.contain))),
           SafeArea(child: Padding(
             padding: const EdgeInsets.all(12),
-            child: FilledButton(
-              onPressed: () => Navigator.of(context).pop(),
-              child: const Text('Yeniden çek'),
-            ),
+            child: Row(children: [
+              Expanded(child: OutlinedButton.icon(
+                onPressed: () => Navigator.of(context).pop(),
+                icon: const Icon(Icons.replay),
+                label: const Text('Yeniden çek'),
+              )),
+              const SizedBox(width: 12),
+              Expanded(child: FilledButton.icon(
+                onPressed: () => Navigator.of(context).push(
+                  MaterialPageRoute(builder: (_) => CropScreen(imagePath: imagePath)),
+                ),
+                icon: const Icon(Icons.check),
+                label: const Text('Fotoğrafı kullan'),
+              )),
+            ]),
           )),
         ],
       ),
