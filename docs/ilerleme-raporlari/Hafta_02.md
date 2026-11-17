@@ -103,3 +103,13 @@ Uygulamanın geliştirilmesinde kullanılacak teknolojileri ve temel teknik yakl
 Ekip görevlerini dağıttık ve GitHub deposunu oluşturduk.
 
 Sonraki hafta uygulamanın taslak arayüzünü ve ekran akışlarını hazırlamaya odaklanacağız.
+
+---
+
+### Proje tanıtımı
+
+**Tanıtım sorumlusu:** Bayram Külter  
+**Geliştirme blogu:** [Bir mobil tarayıcının mimarisini nasıl kurguladık?](https://rjhtctn.github.io/scan_app-mobile-programming-project/blog/hafta-02.html)  
+**İlgili çalışma dönemi:** 12–18 Ekim 2026
+
+Bu çalışmayı ele alan teknik blog yazısı proje iletişim faaliyetleri kapsamında hazırlanmıştır.

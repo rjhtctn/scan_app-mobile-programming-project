@@ -59,3 +59,13 @@ Proje konusunu, proje yöneticisini, temel amacımızı, çözmek istediğimiz p
 Henüz yazılım geliştirmeye başlamadık.
 
 Sonraki hafta uygulamanın hangi teknolojilerle geliştirileceğini ve ekip içerisindeki görev dağılımını belirleyeceğiz.
+
+---
+
+### Proje tanıtımı
+
+**Tanıtım sorumlusu:** Bayram Külter  
+**Geliştirme blogu:** [Bir belgeyi fotoğraflamak neden onu taramak değildir?](https://rjhtctn.github.io/scan_app-mobile-programming-project/blog/hafta-01.html)  
+**İlgili çalışma dönemi:** 5–11 Ekim 2026
+
+Bu çalışmayı ele alan teknik blog yazısı proje iletişim faaliyetleri kapsamında hazırlanmıştır.

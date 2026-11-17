@@ -65,3 +65,13 @@ Bu haftanın hedefi, çekilmiş bir fotoğraf üzerinde dört köşeyi elle beli
 #### 7.5. Ara Değerlendirme ve Sonraki Kayıt
 
 Manuel kırpmanın arayüzü, ilk görüntü işleme adımı ve yerel taslak kaydı **kaynak kod düzeyinde mevcut**. Test, hata düzeltme ve dokümantasyon işleri devam ediyor. Bu belge 17 Kasım tarihli ara rapordur; **22 Kasım hafta sonu kapanış raporunun yerine geçmez**. O tarihte gerçekleşen çalışmalara göre güncellenecektir.
+
+---
+
+### Proje tanıtımı
+
+**Tanıtım sorumlusu:** Bayram Külter  
+**Geliştirme blogu:** [Dört noktadan bir belge seçmek: manuel kırpmanın ilk adımı](https://rjhtctn.github.io/scan_app-mobile-programming-project/blog/hafta-07.html)  
+**İlgili çalışma dönemi:** 16–22 Kasım 2026
+
+Bu çalışmayı ele alan teknik blog yazısı proje iletişim faaliyetleri kapsamında hazırlanmıştır.

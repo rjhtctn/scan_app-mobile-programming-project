@@ -92,3 +92,11 @@ Akilli-Belge-Tarayici/
 - **Yerel Veritabanı:** SQLite (`sqflite`)
 - **Belge Üretimi:** PDF oluşturma kütüphanesi (`pdf` / `printing`)
 - **Sürüm Kontrolü:** Git & GitHub
+
+## Proje blogu
+
+[Scan App — Geliştirme günlüğü](https://rjhtctn.github.io/scan_app-mobile-programming-project/) sayfasında ürün tasarımı, kamera, Flutter arayüzü ve görüntü işleme çalışmaları hakkında Bayram Külter tarafından hazırlanan yazılar bulunmaktadır.
+
+## Mevcut geliştirme kapsamı (17 Kasım 2026)
+
+Kamera ve fotoğraf önizleme, manuel dört nokta ile PNG maskeleme ve yerel taslak kaydı kaynak kodda bulunmaktadır. Otomatik kenar algılama, perspektif dönüşümü, filtreler, PDF ve SQLite takip eden haftaların geliştirme hedefleridir.

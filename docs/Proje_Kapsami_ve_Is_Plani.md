@@ -284,3 +284,8 @@ Her haftanın detaylı görev dağılımına ve hedeflerine aşağıdaki bağlan
 | **10** | 7–13 Aralık 2026 | Çok sayfalı PDF ve SQLite | [10. Hafta İş Planı](is-planlari/Hafta_10.md) | - |
 | **11** | 14–20 Aralık 2026 | Belge yönetimi, test ve entegrasyon | [11. Hafta İş Planı](is-planlari/Hafta_11.md) | - |
 | **12** | 21 Aralık 2026 | Final kontrolü ve teslim | [12. Hafta İş Planı](is-planlari/Hafta_12.md) | - |
+
+
+## Proje tanıtımı
+
+Projenin herkese açık geliştirme günlüğü [Scan App Blog](https://rjhtctn.github.io/scan_app-mobile-programming-project/) üzerinden yayımlanacaktır. Tanıtım içeriklerinin hazırlanması ve koordinasyonu Bayram Külter'in sorumluluğundadır. Haftalık içerik bağlantıları ilerleme raporlarında yer alır.
