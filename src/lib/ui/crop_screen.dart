@@ -1,6 +1,9 @@
 import 'dart:io';
 import 'dart:ui' as ui;
 import 'package:flutter/material.dart';
+import '../scan/manual_crop.dart';
+import '../data/temp_store.dart';
+import 'crop_result_screen.dart';
 
 class CropScreen extends StatefulWidget {
   const CropScreen({super.key, required this.imagePath});
@@ -18,6 +21,7 @@ class _CropScreenState extends State<CropScreen> {
   ];
   List<Offset> _corners = List.of(_initial);
   Size? _imageSize;
+  bool _processing = false;
 
   @override
   void initState() {
@@ -49,6 +53,25 @@ class _CropScreenState extends State<CropScreen> {
         (p.dy + delta.dy / imageRect.height).clamp(0.0, 1.0),
       );
     });
+  }
+
+  Future<void> _applyCrop() async {
+    if (_processing) return;
+    setState(() => _processing = true);
+    try {
+      final cropped = await ManualCrop.apply(widget.imagePath, _corners);
+      final destination = await TempStore.savePreview(cropped);
+      if (!mounted) return;
+      await Navigator.of(context).pushReplacement(
+        MaterialPageRoute(builder: (_) => CropResultScreen(imagePath: destination)),
+      );
+    } catch (e) {
+      if (mounted) ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Kırpma uygulanamadı: $e')),
+      );
+    } finally {
+      if (mounted) setState(() => _processing = false);
+    }
   }
 
   @override
@@ -106,9 +129,9 @@ class _CropScreenState extends State<CropScreen> {
               child: const Text('Sıfırla'),
             )),
             const SizedBox(width: 8),
-            const Expanded(child: FilledButton(
-              onPressed: null,
-              child: Text('Uygula'),
+            Expanded(child: FilledButton(
+              onPressed: _processing || _imageSize == null ? null : _applyCrop,
+              child: const Text('Uygula'),
             )),
           ])),
         ],
