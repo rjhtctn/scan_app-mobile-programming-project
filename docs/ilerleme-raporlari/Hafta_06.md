@@ -5,7 +5,7 @@
 **Rapor dönemi sonu:** 15 Kasım 2026  
 **Rapor sorumlusu:** Rojhat Çetin — Proje yönetimi ve Flutter arayüzü
 
-[← 5. Hafta Raporu](Hafta_05.md) | [6. Hafta İş Planı](../is-planlari/Hafta_06.md)
+[← 5. Hafta Raporu](Hafta_05.md) | [6. Hafta İş Planı](../is-planlari/Hafta_06.md) | [7. Hafta Ara Raporu →](Hafta_07.md)
 
 ---
 

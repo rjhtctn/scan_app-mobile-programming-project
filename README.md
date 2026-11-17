@@ -30,33 +30,22 @@ Uygulama, **veri mahremiyeti (privacy-first)** odaklı tasarlanmıştır; belge 
 
 ```text
 Akilli-Belge-Tarayici/
-│
+├── .git/
+├── .gitignore
 ├── README.md
-│
 ├── docs/
 │   ├── Proje_Kapsami_ve_Is_Plani.md
-│   │
 │   ├── is-planlari/
-│   │   ├── Hafta_01.md
-│   │   ├── Hafta_02.md
-│   │   ├── Hafta_03.md
-│   │   ├── Hafta_04.md
-│   │   ├── Hafta_05.md
-│   │   ├── Hafta_06.md
-│   │   ├── Hafta_07.md
-│   │   ├── Hafta_08.md
-│   │   ├── Hafta_09.md
-│   │   ├── Hafta_10.md
-│   │   ├── Hafta_11.md
-│   │   └── Hafta_12.md
-│   │
+│   │   └── Hafta_01.md ... Hafta_12.md
 │   └── ilerleme-raporlari/
-│       ├── Hafta_01.md
-│       ├── Hafta_02.md
-│       └── Hafta_03.md
-│
-└── tasarimlar/
-    └── README.md
+│       └── Hafta_01.md ... Hafta_07.md
+├── tasarimlar/
+├── ignore/
+└── src/
+    ├── pubspec.yaml
+    ├── lib/
+    ├── android/
+    └── test/
 ```
 
 ---
@@ -88,6 +77,10 @@ Akilli-Belge-Tarayici/
 | **1. Hafta** | 5–11 Ekim 2026 | Proje Fikrinin Belirlenmesi | [Hafta_01.md](docs/ilerleme-raporlari/Hafta_01.md) |
 | **2. Hafta** | 12–18 Ekim 2026 | Teknoloji Seçimi ve Ekip Organizasyonu | [Hafta_02.md](docs/ilerleme-raporlari/Hafta_02.md) |
 | **3. Hafta** | 19–25 Ekim 2026 | Taslak Arayüz Tasarımı ve Prototip Hazırlıkları | [Hafta_03.md](docs/ilerleme-raporlari/Hafta_03.md) |
+| **4. Hafta** | 26 Ekim–1 Kasım 2026 | İlk Flutter Prototipi | [Hafta_04.md](docs/ilerleme-raporlari/Hafta_04.md) |
+| **5. Hafta** | 2–8 Kasım 2026 | Vize Prototipi | [Hafta_05.md](docs/ilerleme-raporlari/Hafta_05.md) |
+| **6. Hafta** | 9–15 Kasım 2026 | Kamera Modülü | [Hafta_06.md](docs/ilerleme-raporlari/Hafta_06.md) |
+| **7. Hafta (ara rapor)** | 16–22 Kasım 2026 | Manuel Kırpma — 17 Kasım Durumu | [Hafta_07.md](docs/ilerleme-raporlari/Hafta_07.md) |
 
 ---
 
