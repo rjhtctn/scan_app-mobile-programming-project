@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Köşeleri sürüklemek, görüntü koordinatlarını korumak ve sonucu cihazda tutmak: Manuel kırpmanın teknik yüzü.">
+  <meta property="og:type" content="article"><meta property="og:title" content="Dört noktadan bir belge seçmek: manuel kırpmanın ilk adımı"><meta property="og:description" content="Köşeleri sürüklemek, görüntü koordinatlarını korumak ve sonucu cihazda tutmak: Manuel kırpmanın teknik yüzü.">
+  <meta property="og:site_name" content="Scan App"><meta property="og:locale" content="tr_TR">
+  <link rel="canonical" href="https://rjhtctn.github.io/scan_app-mobile-programming-project/blog/hafta-07.html"><link rel="stylesheet" href="assets/site.css"><link rel="icon" href="../logo/logo.png" type="image/png">
+  <title>Dört noktadan bir belge seçmek: manuel kırpmanın ilk adımı | Scan App</title>
+</head>
+<body>
+<a class="skip" href="#icerik">İçeriğe geç</a>
+<header><nav class="nav wrap" aria-label="Ana menü"><a class="brand" href="../index.html"><img src="../logo/logo.png" alt="" width="42" height="42"> Scan App<span class="brand-dot">.</span></a><div class="navlinks"><a href="../index.html#yazilar">Yazılar</a><a href="../index.html#proje">Proje</a><a href="https://github.com/rjhtctn/scan_app-mobile-programming-project" target="_blank" rel="noopener">GitHub ↗</a></div></nav></header>
+<section class="article-head"><div class="article-intro wrap"><a class="back" href="../index.html#yazilar">← Geliştirme günlüğü</a><div class="eyebrow">Görüntü işleme <span class="sep">/</span> 07. YAZI</div><h1>Dört noktadan bir belge seçmek: manuel kırpmanın ilk adımı</h1><p class="dek">Köşeleri sürüklemek, görüntü koordinatlarını korumak ve sonucu cihazda tutmak: Manuel kırpmanın teknik yüzü.</p><div class="byline"><img src="../logo/logo.png" alt="" width="42" height="42"><div><strong>Bayram Külter</strong><span>Proje iletişimi · 7 dk okuma</span></div><div class="period">Çalışma dönemi: 16–22 Kasım 2026</div></div></div></section>
+<main id="icerik"><article class="prose wrap"><p>Belge fotoğrafını çekmek ile belgeyi taranabilir hâle getirmek arasında en görünür adımlardan biri kırpmadır. Yedinci haftada dört köşesi elle ayarlanabilen bir seçim alanı ve sonucu yerel bir görüntü taslağı olarak saklayan ilk akışı geliştirmeye başladık. Bu yazı, <strong>17 Kasım itibarıyla ulaşılan aşamayı</strong> ele alıyor.</p>
+<h2>Dört köşeyi ekranda taşımak ne kadar basit?</h2>
+<p>Kullanıcı görüntünün üzerinde dört tutamacı sürüklediğinde ilk bakışta yalnızca birkaç noktanın yer değiştirdiği görülür. Fakat telefon ekranındaki çizim alanı ile fotoğrafın gerçek piksel boyutları farklıdır. Ekrandaki koordinatı doğrudan görüntü pikseli olarak kullanmak, farklı çözünürlüklerde yanlış kırpma alanlarına yol açabilir.</p>
+<p>Bu nedenle ilk uygulamada köşeleri görüntünün genişlik ve yüksekliğine göre <strong>0 ile 1 arasında normalize edilmiş koordinatlar</strong> olarak tutuyoruz. Ekrandaki gösterim boyutu değişse de seçilen noktalar oransal olarak aynı konumu temsil edebiliyor.</p>
+<h2>Görüntü işleme nerede başlıyor?</h2>
+<p>Kırpma ekranında seçilen dört köşe <code>ManualCrop</code> işlemine aktarılıyor. Kod, fotoğrafı çözümlüyor; köşe noktalarını gerçek piksel koordinatlarına dönüştürüyor; seçili alanın sınırlarını hesaplıyor ve dörtgenin dışında kalan bölümü şeffaf bırakan bir PNG oluşturuyor.</p>
+<p>Bu, sıradan dikdörtgen bir kırpmadan daha esnek bir maskeleme adımı; fakat önemli bir sınırlaması var.</p>
+<blockquote>
+<p><strong>Dörtgen maske, perspektif düzeltmesi değildir.</strong> Eğik çekilmiş bir sayfanın kenarlarını seçmek mümkündür; ancak sayfayı ön cepheden çekilmiş gibi dikdörtgene dönüştürmek için ayrıca perspektif dönüşümü gerekir. OpenCV ile bu işlemi geliştirmek sonraki aşamanın hedefi.</p>
+</blockquote>
+<h2>Oluşturulan görüntü kaybolmamalı</h2>
+<p>Bayram'ın yerel dosya tarafındaki geliştirmesi, kırpma sonucunu uygulama belgeleri alanında PNG olarak saklıyor. Ayrıca ana ekran bu taslakları listeleyip yeniden açabiliyor. Böylece manuel kırpma yalnızca anlık bir görsel işlem olarak kalmıyor; kullanıcıya tekrar ulaşabileceği bir ara sonuç sunuyor.</p>
+<p>Dosya yolu ve arayüzün birbirinden ayrılması, ileride PDF oluşturma aşaması eklendiğinde de işimize yarayacak. Şimdilik PNG taslağı, nihai PDF belgesiyle aynı şey değil.</p>
+<h2>Sırada hangi sorular var?</h2>
+<p>Hafta henüz bitmediği için farklı fotoğraf boyutlarında köşe davranışı, geçersiz dörtgen seçimleri, kaydetme hataları ve gerçek Android cihaz üzerindeki akışın doğrulanması devam eden başlıklar. Bu yazının odağı tamamlanmış bir ürün duyurusu değil; manuel kırpmanın <strong>tasarım kararları ve ilk kaynak kod adımları</strong>.</p>
+<p>Kamera ile başlayan akışın kullanıcı tarafından kontrol edilebilir hâle gelmesi, Scan App için önemli bir kilometre taşı. Sonraki teknik hedef ise otomatik kenar algılama ve perspektif düzeltme.</p>
+<h2>Koordinatları oransal saklamanın faydası</h2>
+<p>Örneğin görüntünün sağ üst köşesine yakın bir nokta, ekranda <code>(0.9, 0.1)</code> olarak temsil edilebilir. Görüntü 400 piksel genişlikte de olsa 1600 piksel genişlikte de olsa bu noktanın <em>oransal konumu</em> değişmez. İşlem sırasında bu değerler görüntünün gerçek genişlik ve yüksekliğiyle çarpılarak piksel koordinatlarına dönüştürülür.</p>
+<p>Bu yaklaşım kırpma işlemini her ekran boyutuna otomatik olarak kusursuz uyarlamaz; görüntünün ekrana sığdırılma biçimi yine hesaba katılmalıdır. Ancak farklı çözünürlüklerde aynı dört köşeyi anlamlı biçimde temsil etmek için sağlam bir başlangıç sunar.</p>
+</article><section class="article-foot wrap"><div class="foot-meta"><span>SCAN APP / GELİŞTİRME GÜNLÜĞÜ</span><p>Belge tarama deneyimini tasarımdan uygulamaya taşıyan haftalık yazılar.</p></div><div class="prevnext"><a href="hafta-06.html">← Önceki yazı</a><a href="../index.html#yazilar">Tüm yazılar</a></div></section></main>
+<footer><div class="wrap footer-in"><span>© Scan App · Mobile Programming, 2026–2027 Güz</span><a href="https://github.com/rjhtctn/scan_app-mobile-programming-project">GitHub repository ↗</a></div></footer>
+</body></html>
