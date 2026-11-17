@@ -44,7 +44,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       appBar: AppBar(title: const Text('Akıllı Belge Tarayıcı')),
       body: ListView(padding: const EdgeInsets.all(20), children: [
-        const Icon(Icons.document_scanner_outlined, size: 64, color: Colors.teal),
+        const Image(image: AssetImage('assets/logo.png'), width: 72, height: 72),
         const SizedBox(height: 12),
         const Text('Belgelerim', style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
         const SizedBox(height: 12),
