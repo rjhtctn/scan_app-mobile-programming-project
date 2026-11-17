@@ -136,3 +136,13 @@ Vize öncesindeki sonraki haftada Flutter projesini oluşturup ana ekran, kamera
 - Fiziksel cihaz testi ve geliştirme paketlerinin uygulama içinde doğrulanması: kod geliştirildikçe yapılacak.
 
 **Kapanış değerlendirmesi:** 3. haftanın **tasarım ve planlama hedefleri** tamamlandı; henüz çalışan Flutter uygulaması oluşturulmadı. Böylece 20 Ekim'de açık bırakılan hazırlık işleri için hafta sonu durumu ayrıca kaydedilmiş oldu.
+
+---
+
+### Proje tanıtımı
+
+**Tanıtım sorumlusu:** Bayram Külter  
+**Geliştirme blogu:** [Kameradan arşive: dokuz ekranla bir kullanıcı yolculuğu](https://rjhtctn.github.io/scan_app-mobile-programming-project/blog/hafta-03.html)  
+**İlgili çalışma dönemi:** 19–25 Ekim 2026
+
+Bu çalışmayı ele alan teknik blog yazısı proje iletişim faaliyetleri kapsamında hazırlanmıştır.

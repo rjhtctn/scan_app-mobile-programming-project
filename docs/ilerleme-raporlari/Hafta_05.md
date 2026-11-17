@@ -35,3 +35,13 @@ Ana ekran, kamera sayfası ve örnek belge kartları prototipin mevcut parçalar
 #### 5.4. Sonraki Hafta
 
 Kamera modülünün güvenilirliğinin artırılması, çekim sonrası önizleme ve geçici dosya saklama akışının geliştirilmesi hedeflenmektedir.
+
+---
+
+### Proje tanıtımı
+
+**Tanıtım sorumlusu:** Bayram Külter  
+**Geliştirme blogu:** [İlk prototipte doğru görsel hiyerarşiyi aramak](https://rjhtctn.github.io/scan_app-mobile-programming-project/blog/hafta-05.html)  
+**İlgili çalışma dönemi:** 2–8 Kasım 2026
+
+Bu çalışmayı ele alan teknik blog yazısı proje iletişim faaliyetleri kapsamında hazırlanmıştır.

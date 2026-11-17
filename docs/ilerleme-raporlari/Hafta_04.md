@@ -37,3 +37,13 @@ Kaynak kod açısından Flutter uygulamasının ilk prototipini oluşturan ekran
 #### 4.4. Sonraki Hafta
 
 Vize prototipinin görünümünün değerlendirilmesi, eksiklerin listelenmesi ve sonraki geliştirme adımlarının netleştirilmesi planlanmaktadır.
+
+---
+
+### Proje tanıtımı
+
+**Tanıtım sorumlusu:** Bayram Külter  
+**Geliştirme blogu:** [Çizimden Flutter ekranına: ilk çalışan parçalar](https://rjhtctn.github.io/scan_app-mobile-programming-project/blog/hafta-04.html)  
+**İlgili çalışma dönemi:** 26 Ekim–1 Kasım 2026
+
+Bu çalışmayı ele alan teknik blog yazısı proje iletişim faaliyetleri kapsamında hazırlanmıştır.

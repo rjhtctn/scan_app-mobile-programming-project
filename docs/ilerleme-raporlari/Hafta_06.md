@@ -37,3 +37,13 @@ Uygulama, kaynak kod düzeyinde kamera açma, fotoğraf çekme, fotoğrafı öni
 #### 6.4. Sonraki Hafta
 
 Kullanıcının belge üzerinde dört köşe belirleyebileceği manuel kırpma ekranı ve kırpılan fotoğrafın yerel olarak saklanması geliştirilecektir.
+
+---
+
+### Proje tanıtımı
+
+**Tanıtım sorumlusu:** Bayram Külter  
+**Geliştirme blogu:** [Kamera açıldıktan sonra iş neden bitmiyor?](https://rjhtctn.github.io/scan_app-mobile-programming-project/blog/hafta-06.html)  
+**İlgili çalışma dönemi:** 9–15 Kasım 2026
+
+Bu çalışmayı ele alan teknik blog yazısı proje iletişim faaliyetleri kapsamında hazırlanmıştır.
