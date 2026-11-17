@@ -2,7 +2,7 @@ import 'dart:io';
 import 'dart:ui' as ui;
 import 'package:flutter/material.dart';
 import '../scan/manual_crop.dart';
-import '../data/temp_store.dart';
+import '../data/draft_store.dart';
 import 'crop_result_screen.dart';
 
 class CropScreen extends StatefulWidget {
@@ -60,7 +60,7 @@ class _CropScreenState extends State<CropScreen> {
     setState(() => _processing = true);
     try {
       final cropped = await ManualCrop.apply(widget.imagePath, _corners);
-      final destination = await TempStore.savePreview(cropped);
+      final destination = await DraftStore.saveCrop(cropped);
       if (!mounted) return;
       await Navigator.of(context).pushReplacement(
         MaterialPageRoute(builder: (_) => CropResultScreen(imagePath: destination)),
