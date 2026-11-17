@@ -275,10 +275,10 @@ Her haftanın detaylı görev dağılımına ve hedeflerine aşağıdaki bağlan
 | **1** | 5–11 Ekim 2026 | Proje fikri, kapsam ve iş planı | [1. Hafta İş Planı](is-planlari/Hafta_01.md) | [1. Hafta Raporu](ilerleme-raporlari/Hafta_01.md) |
 | **2** | 12–18 Ekim 2026 | Teknoloji ve ekip organizasyonu | [2. Hafta İş Planı](is-planlari/Hafta_02.md) | [2. Hafta Raporu](ilerleme-raporlari/Hafta_02.md) |
 | **3** | 19–25 Ekim 2026 | Taslak arayüz tasarımı ve prototip hazırlıkları | [3. Hafta İş Planı](is-planlari/Hafta_03.md) | [3. Hafta Raporu](ilerleme-raporlari/Hafta_03.md) |
-| **4** | 26 Ekim–1 Kasım 2026 | İlk Flutter prototipi | [4. Hafta İş Planı](is-planlari/Hafta_04.md) | - |
-| **5** | 2–8 Kasım 2026 | Vize ve prototip değerlendirmesi | [5. Hafta İş Planı](is-planlari/Hafta_05.md) | - |
-| **6** | 9–15 Kasım 2026 | Kamera modülü | [6. Hafta İş Planı](is-planlari/Hafta_06.md) | - |
-| **7** | 16–22 Kasım 2026 | Manuel belge kırpma | [7. Hafta İş Planı](is-planlari/Hafta_07.md) | - |
+| **4** | 26 Ekim–1 Kasım 2026 | İlk Flutter prototipi | [4. Hafta İş Planı](is-planlari/Hafta_04.md) | [4. Hafta Raporu](ilerleme-raporlari/Hafta_04.md) |
+| **5** | 2–8 Kasım 2026 | Vize ve prototip değerlendirmesi | [5. Hafta İş Planı](is-planlari/Hafta_05.md) | [5. Hafta Raporu](ilerleme-raporlari/Hafta_05.md) |
+| **6** | 9–15 Kasım 2026 | Kamera modülü | [6. Hafta İş Planı](is-planlari/Hafta_06.md) | [6. Hafta Raporu](ilerleme-raporlari/Hafta_06.md) |
+| **7** | 16–22 Kasım 2026 | Manuel belge kırpma | [7. Hafta İş Planı](is-planlari/Hafta_07.md) | [7. Hafta Ara Raporu](ilerleme-raporlari/Hafta_07.md) |
 | **8** | 23–29 Kasım 2026 | Otomatik algılama ve perspektif | [8. Hafta İş Planı](is-planlari/Hafta_08.md) | - |
 | **9** | 30 Kasım–6 Aralık 2026 | Filtreler ve ilk PDF | [9. Hafta İş Planı](is-planlari/Hafta_09.md) | - |
 | **10** | 7–13 Aralık 2026 | Çok sayfalı PDF ve SQLite | [10. Hafta İş Planı](is-planlari/Hafta_10.md) | - |
