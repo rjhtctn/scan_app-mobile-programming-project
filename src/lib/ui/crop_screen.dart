@@ -21,6 +21,7 @@ class _CropScreenState extends State<CropScreen> {
   ];
   List<Offset> _corners = List.of(_initial);
   Size? _imageSize;
+  String? _imageError;
   bool _processing = false;
 
   @override
@@ -39,20 +40,23 @@ class _CropScreenState extends State<CropScreen> {
       codec.dispose();
       if (mounted) setState(() => _imageSize = size);
     } catch (e) {
-      if (mounted) ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Görsel açılamadı: $e')),
-      );
+      if (mounted) {
+        setState(() => _imageError = 'Görsel açılamadı: $e');
+      }
     }
   }
 
   void _moveCorner(int index, Offset delta, Rect imageRect) {
-    final p = _corners[index];
-    setState(() {
-      _corners[index] = Offset(
-        (p.dx + delta.dx / imageRect.width).clamp(0.0, 1.0),
-        (p.dy + delta.dy / imageRect.height).clamp(0.0, 1.0),
-      );
-    });
+    if (_processing || imageRect.width <= 0 || imageRect.height <= 0) return;
+    final point = _corners[index];
+    final updated = List<Offset>.of(_corners);
+    updated[index] = Offset(
+      (point.dx + delta.dx / imageRect.width).clamp(0.0, 1.0),
+      (point.dy + delta.dy / imageRect.height).clamp(0.0, 1.0),
+    );
+    // Sürükleme sırasında köşelerin birbirini geçmesini önle.
+    if (!CropGeometry.isValidNormalized(updated)) return;
+    setState(() => _corners = updated);
   }
 
   Future<void> _applyCrop() async {
@@ -82,7 +86,15 @@ class _CropScreenState extends State<CropScreen> {
         children: [
           Expanded(child: LayoutBuilder(builder: (context, constraints) {
             final imageSize = _imageSize;
-            if (imageSize == null) return const Center(child: CircularProgressIndicator());
+            if (_imageError != null) {
+              return Center(child: Padding(
+                padding: const EdgeInsets.all(20),
+                child: Text(_imageError!, textAlign: TextAlign.center),
+              ));
+            }
+            if (imageSize == null) {
+              return const Center(child: CircularProgressIndicator());
+            }
             final scale = (constraints.maxWidth / imageSize.width) <
                     (constraints.maxHeight / imageSize.height)
                 ? constraints.maxWidth / imageSize.width
@@ -96,7 +108,13 @@ class _CropScreenState extends State<CropScreen> {
             return Stack(children: [
               Positioned.fromRect(
                 rect: rect,
-                child: Image.file(File(widget.imagePath), fit: BoxFit.fill),
+                child: Image.file(
+                  File(widget.imagePath),
+                  fit: BoxFit.fill,
+                  errorBuilder: (_, __, ___) => const Center(
+                    child: Text('Görsel gösterilemiyor.'),
+                  ),
+                ),
               ),
               Positioned.fill(child: IgnorePointer(child: CustomPaint(
                 painter: CropOverlayPainter(imageRect: rect, corners: _corners),
@@ -120,18 +138,20 @@ class _CropScreenState extends State<CropScreen> {
           })),
           Padding(padding: const EdgeInsets.all(12), child: Row(children: [
             Expanded(child: OutlinedButton(
-              onPressed: () => Navigator.pop(context),
+              onPressed: _processing ? null : () => Navigator.pop(context),
               child: const Text('İptal'),
             )),
             const SizedBox(width: 8),
             Expanded(child: OutlinedButton(
-              onPressed: () => setState(() => _corners = List.of(_initial)),
+              onPressed: _processing ? null : () => setState(() => _corners = List.of(_initial)),
               child: const Text('Sıfırla'),
             )),
             const SizedBox(width: 8),
             Expanded(child: FilledButton(
-              onPressed: _processing || _imageSize == null ? null : _applyCrop,
-              child: const Text('Uygula'),
+              onPressed: _processing || _imageSize == null || _imageError != null
+                  ? null
+                  : _applyCrop,
+              child: Text(_processing ? 'İşleniyor...' : 'Uygula'),
             )),
           ])),
         ],

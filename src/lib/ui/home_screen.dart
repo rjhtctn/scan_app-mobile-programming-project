@@ -39,6 +39,22 @@ class _HomeScreenState extends State<HomeScreen> {
     if (mounted) await _loadDrafts();
   }
 
+  Future<void> _openDraft(File draft) async {
+    if (!await draft.exists()) {
+      if (!mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Taslak dosyası bulunamadı.')),
+      );
+      await _loadDrafts();
+      return;
+    }
+    if (!mounted) return;
+    await Navigator.of(context).push(MaterialPageRoute(
+      builder: (_) => CropResultScreen(imagePath: draft.path),
+    ));
+    if (mounted) await _loadDrafts();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -56,13 +72,17 @@ class _HomeScreenState extends State<HomeScreen> {
           const Padding(padding: EdgeInsets.all(16), child: Text('Henüz kırpılmış bir taslak yok.')),
         for (final draft in _drafts)
           Card(child: ListTile(
-            leading: Image.file(draft, width: 52, height: 52, fit: BoxFit.cover),
+            leading: Image.file(
+              draft,
+              width: 52,
+              height: 52,
+              fit: BoxFit.cover,
+              errorBuilder: (_, __, ___) => const Icon(Icons.broken_image_outlined),
+            ),
             title: const Text('Kırpılmış belge'),
             subtitle: const Text('Cihazda saklanan PNG taslağı'),
             trailing: const Icon(Icons.chevron_right),
-            onTap: () => Navigator.of(context).push(MaterialPageRoute(
-              builder: (_) => CropResultScreen(imagePath: draft.path),
-            )),
+            onTap: () => _openDraft(draft),
           )),
         const SizedBox(height: 20),
         FilledButton.icon(

@@ -10,7 +10,14 @@ class CropResultScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: const Text('Kırpma sonucu')),
       body: Column(children: [
-        Expanded(child: Center(child: Image.file(File(imagePath), fit: BoxFit.contain))),
+        Expanded(child: Center(child: Image.file(
+          File(imagePath),
+          fit: BoxFit.contain,
+          errorBuilder: (_, __, ___) => const Padding(
+            padding: EdgeInsets.all(20),
+            child: Text('Kırpılmış görüntü dosyası açılamadı.'),
+          ),
+        ))),
         const Padding(
           padding: EdgeInsets.all(12),
           child: Text('Dört köşe ile kırpıldı. Perspektif düzeltme sonraki sürüme eklenecek.'),
