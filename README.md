@@ -80,7 +80,7 @@ Akilli-Belge-Tarayici/
 | **4. Hafta** | 26 Ekim–1 Kasım 2026 | İlk Flutter Prototipi | [Hafta_04.md](docs/ilerleme-raporlari/Hafta_04.md) |
 | **5. Hafta** | 2–8 Kasım 2026 | Vize Prototipi | [Hafta_05.md](docs/ilerleme-raporlari/Hafta_05.md) |
 | **6. Hafta** | 9–15 Kasım 2026 | Kamera Modülü | [Hafta_06.md](docs/ilerleme-raporlari/Hafta_06.md) |
-| **7. Hafta (ara rapor)** | 16–22 Kasım 2026 | Manuel Kırpma — 17 Kasım Durumu | [Hafta_07.md](docs/ilerleme-raporlari/Hafta_07.md) |
+| **7. Hafta** | 16–22 Kasım 2026 | Manuel Kırpma — Tamamlanma Raporu | [Hafta_07.md](docs/ilerleme-raporlari/Hafta_07.md) |
 
 ---
 
@@ -97,6 +97,6 @@ Akilli-Belge-Tarayici/
 
 [Scan App — Geliştirme günlüğü](https://rjhtctn.github.io/scan_app-mobile-programming-project/) sayfasında ürün tasarımı, kamera, Flutter arayüzü ve görüntü işleme çalışmaları hakkında Bayram Külter tarafından hazırlanan yazılar bulunmaktadır.
 
-## Mevcut geliştirme kapsamı (17 Kasım 2026)
+## Mevcut geliştirme kapsamı (22 Kasım 2026)
 
-Kamera ve fotoğraf önizleme, manuel dört nokta ile PNG maskeleme ve yerel taslak kaydı kaynak kodda bulunmaktadır. Otomatik kenar algılama, perspektif dönüşümü, filtreler, PDF ve SQLite takip eden haftaların geliştirme hedefleridir.
+Kamera ve fotoğraf önizleme, manuel dört nokta ile PNG maskeleme, dörtgen geometri kontrolleri ve yerel taslak kaydı kaynak kodda bulunmaktadır. Otomatik kenar algılama, perspektif dönüşümü, filtreler, PDF ve SQLite takip eden haftaların geliştirme hedefleridir.

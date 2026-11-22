@@ -3,7 +3,7 @@
 **Kapsanan hafta:** 16–22 Kasım 2026  
 **Yazar:** Bayram Külter
 
-Belge fotoğrafını çekmek ile belgeyi taranabilir hâle getirmek arasında en görünür adımlardan biri kırpmadır. Yedinci haftada dört köşesi elle ayarlanabilen bir seçim alanı ve sonucu yerel bir görüntü taslağı olarak saklayan ilk akışı geliştirmeye başladık. Bu yazı, **17 Kasım itibarıyla ulaşılan aşamayı** ele alıyor.
+Belge fotoğrafını çekmek ile belgeyi taranabilir hâle getirmek arasında en görünür adımlardan biri kırpmadır. Yedinci haftada dört köşesi elle ayarlanabilen bir seçim alanı ve sonucu yerel bir görüntü taslağı olarak saklayan ilk akışı geliştirmeye başladık. Bu yazı, **16–22 Kasım dönemindeki manuel kırpma geliştirmelerini** ele alıyor.
 
 ## Dört köşeyi ekranda taşımak ne kadar basit?
 
