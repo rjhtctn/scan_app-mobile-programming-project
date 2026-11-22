@@ -58,8 +58,8 @@ class ManualCrop {
     ui.Image? image;
     try {
       final frame = await codec.getNextFrame();
-      image = frame.image;
-      final source = image;
+      final ui.Image source = frame.image;
+      image = source;
 
       final points = [
         for (final corner in normalizedCorners)
