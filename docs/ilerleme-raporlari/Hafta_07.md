@@ -2,76 +2,67 @@
 ## 7. Hafta — 16–22 Kasım 2026
 ### Manuel Belge Kırpma
 
-**Rapor türü:** Ara ilerleme raporu — haftanın tamamlanmış hâli değildir  
-**Durum tarihi:** 17 Kasım 2026, Salı  
-**Rapor sorumlusu:** Rojhat Çetin — Proje yöneticisi ve arayüz geliştirme
+**Rapor dönemi sonu:** 22 Kasım 2026  
+**Rapor sorumlusu:** Yusuf Emre Gözcü — Kamera ve görüntü işleme  
+**Haftalık durum:** Manuel kırpma, sonuç önizlemesi ve yerel PNG taslak akışı geliştirildi.
 
-[← 6. Hafta Raporu](Hafta_06.md) | [Ana İş Planı](../Proje_Kapsami_ve_Is_Plani.md) | [7. Hafta İş Planı](../is-planlari/Hafta_07.md)
+[← 6. Hafta Raporu](Hafta_06.md) | [Ana İş Planı](../Proje_Kapsami_ve_Is_Plani.md) | [7. Hafta İş Planı](../is-planlari/Hafta_07.md) | [8. Hafta İş Planı](../is-planlari/Hafta_08.md)
 
 ---
 
-#### 7.1. 17 Kasım İtibarıyla Genel Durum
+#### 7.1. Haftanın Amacı
 
-Bu haftanın hedefi, çekilmiş bir fotoğraf üzerinde dört köşeyi elle belirleyerek belgeyi kırpmak ve sonucu cihazda saklamaktır. 16–17 Kasım'da kaynak kodda manuel kırpma için ilk işlevler eklendi. Hafta devam ettiği için **geliştirme ve doğrulama çalışmaları sürmektedir**.
+Kamerayla alınan fotoğraf üzerinde kullanıcı tarafından dört köşe seçilmesini, bu seçimin görüntüye uygulanmasını ve elde edilen PNG taslağının cihaz üzerinde saklanarak tekrar açılmasını sağlamak. Bu aşama manuel dörtgen maskelemeyi kapsar; otomatik belge tespiti ve perspektif dönüşümü sonraki haftanın konularıdır.
 
-#### 7.2. Ekip Çalışmaları — Şimdiye Kadar
+#### 7.2. Tamamlanan Geliştirmeler
 
-**Rojhat Çetin — Proje yönetimi ve arayüz geliştirme**
+**Rojhat Çetin — Flutter arayüzü ve ekran akışı**
 
-- `crop_screen.dart` ile fotoğraf üzerinde sürüklenebilir dört köşe ve seçim alanı oluşturuldu.
-- İptal, sıfırla ve kırpmayı uygula seçenekleri arayüze eklendi.
-- Ana akış, kamera/fotoğraf önizlemesinden kırpma ekranına bağlandı.
+- Fotoğraf önizlemesinden manuel kırpma ekranına geçiş, iptal ve sıfırlama seçenekleri düzenlendi.
+- Dört köşeli seçim tutamaçlarının görüntüye göre oransal hareketi korundu; geçersiz konumlara sürükleme sınırlandırıldı.
+- Kırpma işlemi sırasında butonların durumu ve işlem bilgisi güncellendi.
+- Görüntünün açılamaması veya taslak dosyasının bulunamaması durumları için arayüzde açıklayıcı mesajlar eklendi.
+- Kırpma sonucu ve ana ekrandaki yerel taslaklar arasındaki gezinme iyileştirildi.
 
-**Yusuf Emre Gözcü — Kamera ve görüntü işleme**
+**Yusuf Emre Gözcü — Görüntü işleme**
 
-- Köşe noktaları görüntüye göre oransal koordinatlar şeklinde tutuluyor.
-- Seçilen dörtgenin dışında kalan pikselleri saydamlaştıran PNG maskeleme işleminin ilk sürümü eklendi (`manual_crop.dart`).
-- Kırpma sonucunun önizleme ekranında gösterilmesi sağlandı.
-- Bu sürüm **perspektif düzeltme değildir**; o işlem 8. haftanın kapsamındadır.
+- `scan/manual_crop.dart` modülündeki dörtgen maskeleme işlemi geliştirildi.
+- Seçim koordinatları normalize edilerek görüntünün gerçek piksel boyutlarına dönüştürüldü.
+- Görüntü sınırları dışındaki, içbükey, kesişen ve alanı çok küçük dörtgen seçimleri için kontrol eklendi.
+- Maskeleme sonucunda dörtgen dışını saydam bırakan PNG üretimi korundu; görüntü çözümleme nesnelerinin kaynak yönetimi düzenlendi.
+- Dörtgen geometrisini sınayan test senaryoları `test/crop_geometry_test.dart` dosyasına eklendi.
 
-**Bayram Külter — Veri yönetimi, PDF ve tanıtım**
+**Bayram Külter — Dosya yönetimi ve proje iletişimi**
 
-- Kırpılmış PNG dosyaları için yerel taslak kaydetme akışı eklendi (`draft_store.dart`).
-- Kaydedilen taslakları ana ekranda listeleme ve yeniden açma desteği eklendi.
-- PDF ve SQLite modülleri bu haftanın kapsamına alınmadı. Medium paylaşımının yayımlandığı bu kaynaklardan doğrulanamadı.
+- Kırpılmış görüntülerin uygulamanın belge dizinindeki `scan_drafts` klasörüne PNG olarak kaydedilmesi geliştirildi.
+- Geçersiz PNG verilerinin kaydını engelleyen imza kontrolü eklendi.
+- Dosyalar önce geçici bir yazma dosyasına alınıp kayıt tamamlandığında PNG adına taşınacak şekilde düzenlendi.
+- Çekilen ham fotoğrafların geçici klasörde tutulması ve yedi günden eski geçici çekim kopyalarının temizlenmesi sağlandı.
+- PNG içerik kontrolü için test senaryoları eklendi; haftanın teknik blog yazısı güncellendi.
 
-#### 7.3. Henüz Tamamlanmayan / Doğrulanması Gereken İşler
+#### 7.3. Hafta Sonunda Ortaya Çıkan Akış
 
-- Farklı en-boy oranlarına, görüntü yönlerine ve kamera çözünürlüklerine sahip fotoğraflarda köşe koordinatlarını kontrol etmek.
-- Dar veya kesişen dörtgen seçimlerinde kırpma davranışını ve kullanıcıya verilen hata mesajlarını iyileştirmek.
-- Kırpılan görüntünün önizlemesini, dosyanın yeniden açılmasını ve saklama sürekliliğini **gerçek Android cihazda test etmek**.
-- Geçici fotoğrafların ve taslakların dosya yaşam döngüsünü, olası kaydetme hatalarını kontrol etmek.
-- Kullanıcı akışını görsel olarak gözden geçirmek ve gerekli küçük arayüz düzeltmelerini tamamlamak.
-- Tanıtım ve Medium güncellemesini planla karşılaştırmak; yayımlandığı doğrulanmadan tamamlandı işaretlememek.
+1. Kullanıcı ana ekrandan **Yeni tarama** işlemini başlatır.
+2. Kamera fotoğrafı çeker; kullanıcı önizlemede fotoğrafı kabul eder veya yeniden çeker.
+3. Manuel kırpma ekranında dört köşe ayarlanır; seçilen alanın dışında kalan bölge saydamlaştırılır.
+4. Sonuç PNG olarak uygulamanın yerel belge dizinine kaydedilir ve önizlenir.
+5. Ana ekrandaki **Kırpma taslakları** bölümünden kayıtlı sonuç tekrar açılabilir.
 
+#### 7.4. Kontroller ve Takip Edilecek Noktalar
 
-#### 7.4. Haftanın Geri Kalanında Yapılacaklar (18–22 Kasım)
+- Dörtgenin geçerli ve geçersiz konumları için geometri testleri hazırlandı.
+- PNG dosya imzası kontrolü için otomatik test senaryoları eklendi.
+- Farklı telefon ekranları, fotoğraf yönleri ve çözünürlüklerinde cihaz üzerindeki kullanıcı akışının ayrıca sınanması gerekiyor.
+- Bu haftanın PNG maskelemesi, geometrik perspektif düzeltme yerine geçmez.
 
-**Rojhat Çetin**
-- Manuel kırpma arayüzünün kullanımını, geri dönüşleri ve onay/iptal akışını gözden geçirmek.
-- Ekranların farklı telefon boyutlarındaki görünümünü kontrol etmek.
-- Çalışmaların takibini yapıp hafta sonu kapanış raporunu hazırlamak.
+#### 7.5. Sonraki Hafta — 23–29 Kasım 2026
 
-**Yusuf Emre Gözcü**
-- Gerçek fotoğraflarla koordinat ve dörtgen kırpma testlerini yapmak.
-- Hatalı köşe seçimleri ve farklı görüntü boyutlarında oluşabilecek sorunları gidermek.
-- Perspektif düzeltme ile manuel maskeli kırpmanın farklı işler olduğunu kontrol etmek.
-
-**Bayram Külter**
-- Kaydedilen PNG taslaklarını yeniden açma ve dosya hatası senaryolarını denemek.
-- Geçici ve kalıcı dosyaların saklama düzenini gözden geçirmek.
-- Medium tanıtım güncellemesini hazırlamak veya yayımlanma durumunu raporlamak.
-
-#### 7.5. Ara Değerlendirme ve Sonraki Kayıt
-
-Manuel kırpmanın arayüzü, ilk görüntü işleme adımı ve yerel taslak kaydı **kaynak kod düzeyinde mevcut**. Test, hata düzeltme ve dokümantasyon işleri devam ediyor. Bu belge 17 Kasım tarihli ara rapordur; **22 Kasım hafta sonu kapanış raporunun yerine geçmez**. O tarihte gerçekleşen çalışmalara göre güncellenecektir.
+8. haftada otomatik belge kenarı algılama, OpenCV ile perspektif düzeltme ve manuel köşe düzenleme yönteminin korunması hedeflenecek. Düzeltilmiş çıktı da mevcut yerel taslak akışına bağlanacak.
 
 ---
 
 ### Proje tanıtımı
 
 **Tanıtım sorumlusu:** Bayram Külter  
-**Geliştirme blogu:** [Dört noktadan bir belge seçmek: manuel kırpmanın ilk adımı](https://rjhtctn.github.io/scan_app-mobile-programming-project/blog/hafta-07.html)  
-**İlgili çalışma dönemi:** 16–22 Kasım 2026
-
-Bu çalışmayı ele alan teknik blog yazısı proje iletişim faaliyetleri kapsamında hazırlanmıştır.
+**Teknik blog yazısı:** [Dört noktadan bir belge seçmek: manuel kırpmanın ilk adımı](https://rjhtctn.github.io/scan_app-mobile-programming-project/blog/hafta-07.html)  
+**İlgili dönem:** 16–22 Kasım 2026
