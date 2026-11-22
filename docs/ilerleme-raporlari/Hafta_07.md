@@ -2,9 +2,9 @@
 ## 7. Hafta — 16–22 Kasım 2026
 ### Manuel Belge Kırpma
 
-**Rapor dönemi sonu:** 22 Kasım 2026  
-**Rapor sorumlusu:** Yusuf Emre Gözcü — Kamera ve görüntü işleme  
-**Haftalık durum:** Manuel kırpma, sonuç önizlemesi ve yerel PNG taslak akışı geliştirildi.
+- **Rapor dönemi sonu:** 22 Kasım 2026
+- **Rapor sorumlusu:** Yusuf Emre Gözcü — Kamera ve görüntü işleme
+- **Haftalık durum:** Manuel kırpma, sonuç önizlemesi ve yerel PNG taslak akışı geliştirildi.
 
 [← 6. Hafta Raporu](Hafta_06.md) | [Ana İş Planı](../Proje_Kapsami_ve_Is_Plani.md) | [7. Hafta İş Planı](../is-planlari/Hafta_07.md) | [8. Hafta İş Planı](../is-planlari/Hafta_08.md)
 
@@ -63,6 +63,6 @@ Kamerayla alınan fotoğraf üzerinde kullanıcı tarafından dört köşe seçi
 
 ### Proje tanıtımı
 
-**Tanıtım sorumlusu:** Bayram Külter  
-**Teknik blog yazısı:** [Dört noktadan bir belge seçmek: manuel kırpmanın ilk adımı](https://rjhtctn.github.io/scan_app-mobile-programming-project/blog/hafta-07.html)  
-**İlgili dönem:** 16–22 Kasım 2026
+- **Tanıtım sorumlusu:** Bayram Külter
+- **Teknik blog yazısı:** [Dört noktadan bir belge seçmek: manuel kırpmanın ilk adımı](https://rjhtctn.github.io/scan_app-mobile-programming-project/blog/hafta-07.html)
+- **İlgili dönem:** 16–22 Kasım 2026
