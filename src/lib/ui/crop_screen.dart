@@ -51,8 +51,8 @@ class _CropScreenState extends State<CropScreen> {
     final point = _corners[index];
     final updated = List<Offset>.of(_corners);
     updated[index] = Offset(
-      (point.dx + delta.dx / imageRect.width).clamp(0.0, 1.0),
-      (point.dy + delta.dy / imageRect.height).clamp(0.0, 1.0),
+      (point.dx + delta.dx / imageRect.width).clamp(0.0, 1.0).toDouble(),
+      (point.dy + delta.dy / imageRect.height).clamp(0.0, 1.0).toDouble(),
     );
     // Sürükleme sırasında köşelerin birbirini geçmesini önle.
     if (!CropGeometry.isValidNormalized(updated)) return;
