@@ -69,22 +69,22 @@ class ManualCrop {
           .map((point) => point.dx)
           .reduce(math.min)
           .floor()
-          .clamp(0, source.width - 1);
+          .clamp(0, source.width - 1).toInt();
       final minY = points
           .map((point) => point.dy)
           .reduce(math.min)
           .floor()
-          .clamp(0, source.height - 1);
+          .clamp(0, source.height - 1).toInt();
       final maxX = points
           .map((point) => point.dx)
           .reduce(math.max)
           .ceil()
-          .clamp(minX + 1, source.width);
+          .clamp(minX + 1, source.width).toInt();
       final maxY = points
           .map((point) => point.dy)
           .reduce(math.max)
           .ceil()
-          .clamp(minY + 1, source.height);
+          .clamp(minY + 1, source.height).toInt();
       final width = maxX - minX;
       final height = maxY - minY;
       if (width < 8 || height < 8) {
