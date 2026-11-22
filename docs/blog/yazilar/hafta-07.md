@@ -27,9 +27,17 @@ Dosya yolu ve arayüzün birbirinden ayrılması, ileride PDF oluşturma aşamas
 
 ## Sırada hangi sorular var?
 
-Hafta henüz bitmediği için farklı fotoğraf boyutlarında köşe davranışı, geçersiz dörtgen seçimleri, kaydetme hataları ve gerçek Android cihaz üzerindeki akışın doğrulanması devam eden başlıklar. Bu yazının odağı tamamlanmış bir ürün duyurusu değil; manuel kırpmanın **tasarım kararları ve ilk kaynak kod adımları**.
+Haftanın ilk bölümünde farklı fotoğraf boyutlarında köşe davranışı, geçersiz dörtgen seçimleri ve dosya kaydı öncelikli geliştirme başlıklarıydı. Hafta sonuna doğru bu konularda ek kontroller geliştirdik. Bu yazı, manuel kırpmanın **tasarım kararlarına ve uygulama mimarisine** odaklanıyor.
 
 Kamera ile başlayan akışın kullanıcı tarafından kontrol edilebilir hâle gelmesi, Scan App için önemli bir kilometre taşı. Sonraki teknik hedef ise otomatik kenar algılama ve perspektif düzeltme.
+
+## Hafta sonunda neleri iyileştirdik?
+
+Kullanıcının dört köşeyi sürüklemesi sırasında seçim şeklinin kendi üzerine kapanmaması önemliydi. Seçim alanına eklenen geometrik kontroller; görüntü dışına taşan, içbükey, kesişen veya çok küçük dörtgenleri engellemek üzere düzenlendi. Böylece maske üretilmeden önce koordinatların geçerliliği denetleniyor.
+
+Dosya yönetimi tarafında da çıktı PNG'sinin önce geçici bir dosyaya yazılıp ardından kalıcı adına taşınması sağlandı. Bu yaklaşım, yarım kalmış bir yazma işleminin belge listesinde tamamlanmış sonuç gibi görünmesini önlemeyi amaçlıyor. Geçici kamera kopyalarının zamanla birikmemesi için eski çekimler de temizleniyor.
+
+Ana ekranda kayıp taslak dosyası ve görüntü açma hataları için açıklayıcı durum mesajları eklendi. Dörtgen geometrisi ve PNG verisinin temel biçim kontrolü için otomatik test senaryoları hazırlandı. Sonraki aşamada cihaz üzerinde farklı fotoğraf ve ekran boyutlarıyla akış doğrulanacak.
 
 ## Koordinatları oransal saklamanın faydası
 
